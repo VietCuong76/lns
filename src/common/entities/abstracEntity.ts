@@ -6,7 +6,8 @@ export abstract class AbstracEntity {
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })
-  public created_at: Date;
+  @Exclude()
+  created_at: Date;
 
   @UpdateDateColumn({
     type: 'timestamp',
@@ -14,8 +15,9 @@ export abstract class AbstracEntity {
     onUpdate: 'CURRENT_TIMESTAMP(6)',
   })
   @Exclude()
-  public updated_at: Date;
+  updated_at: Date;
 
   @DeleteDateColumn({ type: 'timestamp', nullable: true })
-  public deleted_at: Date;
+  @Exclude()
+  deleted_at: Date;
 }
