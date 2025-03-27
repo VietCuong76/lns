@@ -10,13 +10,13 @@ export class Shop extends AbstracEntity {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
   password: string;
 
-  @Column()
+  @Column({ nullable: true })
   status: string;
 
   @Column({ default: false })
